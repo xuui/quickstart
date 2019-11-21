@@ -36,8 +36,8 @@ function js(){
 function server() {
   browserSync({server:{baseDir:'build'}});
   //return watch(['*.html','css/**//*.css','js/**//*.js'],{cwd:'build'},reload);
-  return watch(['*.html','css/**//*.css','js/**//*.js'],{events:'change'},function(cb) {
-  });
+  return watch(['*.html','css/**//*.css','js/**//*.js'])
+    .on('change', browserSync.reload)
 }
 
 exports.js = js;
@@ -52,44 +52,10 @@ exports.default = parallel(html, css, js);
 
 
 
-
-
-
-
-
-/*
-exports.default = function() {
-  return src('src/script/*.js')
-    .pipe(babel())
-    //.pipe(src('vendor/*.js'))
-    .pipe(dest('build/'))
-    .pipe(uglify())
-    .pipe(rename({ extname: '.min.js' }))
-    .pipe(dest('build/'));
-}
-/*
-const { series } = require('gulp');
-
-function build(cb) {
-  // body omitted
-  cb();
-}
-exports.default = series(build);
-/*
-var gulp = require('gulp');
-var shtml = require('gulp-shtml');
-
+/**
 gulp.task('default',['server']);
-
 gulp.task('server',function(){
   browserSync({server:{baseDir:'build'}});
   gulp.watch(['*.html','css/**//*.css','js/**//*.js'],{cwd:'build'},reload);
-});
-
-gulp.task('shtml',function(){
-  gulp.src('./src/*.shtml', {base: 'src'})
-  .pipe(shtml({wwwroot: './src'}))
-  .pipe(rename({extname:'.html'}))
-  .pipe(gulp.dest('build'));
 });
 */
