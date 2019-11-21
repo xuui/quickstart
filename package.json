@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/xuui/quickstart#readme",
   "devDependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "gulp-rename": "^1.4.0",
+    "gulp-shtml": "^1.1.4",
+    "gulp-uglify": "^3.0.2"
   }
 }
