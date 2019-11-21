@@ -1,0 +1,22 @@
+{
+  "name": "quickstart",
+  "version": "0.1.0",
+  "description": "Quick start html",
+  "main": "server.js",
+  "scripts": {
+    "test": "gulp server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xuui/quickstart.git"
+  },
+  "author": "xu.hel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xuui/quickstart/issues"
+  },
+  "homepage": "https://github.com/xuui/quickstart#readme",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
+}
