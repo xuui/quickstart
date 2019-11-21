@@ -1,11 +1,12 @@
-const { src, dest, parallel } = require('gulp');
+const { src, dest, parallel, watch } = require('gulp'); //series,
 const minifyCSS = require('gulp-csso');
 const concat = require('gulp-concat');
 const less = require('gulp-less');
 const shtml = require('gulp-shtml');
 const rename = require('gulp-rename');
+const browserSync = require('browser-sync');
 
-function html() {
+function html(){
   return src('src/*.shtml',{base: 'src'})
     .pipe(shtml({wwwroot: './src'}))
     .pipe(rename({extname:'.html'}))
@@ -32,10 +33,18 @@ function js(){
     .pipe(dest('build/js', { sourcemaps: true }))
 }
 
+function server() {
+  browserSync({server:{baseDir:'build'}});
+  //return watch(['*.html','css/**//*.css','js/**//*.js'],{cwd:'build'},reload);
+  return watch(['*.html','css/**//*.css','js/**//*.js'],{events:'change'},function(cb) {
+  });
+}
+
 exports.js = js;
 exports.css = css;
 exports.html = html;
 exports.cssless = cssless;
+exports.server = server;
 exports.default = parallel(html, css, js);
 
 
