@@ -18,8 +18,10 @@
   "homepage": "https://github.com/xuui/quickstart#readme",
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-csso": "^4.0.1",
+    "gulp-less": "^4.0.1",
     "gulp-rename": "^1.4.0",
-    "gulp-shtml": "^1.1.4",
-    "gulp-uglify": "^3.0.2"
+    "gulp-shtml": "^1.1.4"
   }
 }

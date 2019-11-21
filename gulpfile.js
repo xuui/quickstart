@@ -1,5 +1,72 @@
-'use strict';
- 
+const { src, dest, parallel } = require('gulp');
+const minifyCSS = require('gulp-csso');
+const concat = require('gulp-concat');
+const less = require('gulp-less');
+const shtml = require('gulp-shtml');
+const rename = require('gulp-rename');
+
+function html() {
+  return src('src/*.shtml',{base: 'src'})
+    .pipe(shtml({wwwroot: './src'}))
+    .pipe(rename({extname:'.html'}))
+    .pipe(dest('build'))
+}
+
+function cssless() {
+  return src('src/less/*.less')
+    .pipe(less())
+    .pipe(minifyCSS())
+    .pipe(dest('build/css'))
+}
+
+function css(){
+  return src('src/styles/*.css')
+    .pipe(concat('style.min.css'))
+    .pipe(minifyCSS())
+    .pipe(dest('build/css'))
+}
+
+function js(){
+  return src('src/scripts/*.js', { sourcemaps: true })
+    .pipe(concat('script.min.js'))
+    .pipe(dest('build/js', { sourcemaps: true }))
+}
+
+exports.js = js;
+exports.css = css;
+exports.html = html;
+exports.cssless = cssless;
+exports.default = parallel(html, css, js);
+
+
+
+
+
+
+
+
+
+
+
+/*
+exports.default = function() {
+  return src('src/script/*.js')
+    .pipe(babel())
+    //.pipe(src('vendor/*.js'))
+    .pipe(dest('build/'))
+    .pipe(uglify())
+    .pipe(rename({ extname: '.min.js' }))
+    .pipe(dest('build/'));
+}
+/*
+const { series } = require('gulp');
+
+function build(cb) {
+  // body omitted
+  cb();
+}
+exports.default = series(build);
+/*
 var gulp = require('gulp');
 var shtml = require('gulp-shtml');
 
@@ -16,3 +83,4 @@ gulp.task('shtml',function(){
   .pipe(rename({extname:'.html'}))
   .pipe(gulp.dest('build'));
 });
+*/
