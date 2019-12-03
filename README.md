@@ -1,5 +1,5 @@
 # quickstart
-html branch.
+vue.js branch.
 
 Quick start project.
 
