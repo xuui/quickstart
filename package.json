@@ -2,7 +2,7 @@
   "name": "quickstart",
   "version": "1.0.0",
   "description": "A Vue.js Quick start project.",
-  "author": "Xuhel <wangxu@ccc.net>",
+  "author": "xu.hel",
   "private": true,
   "scripts": {
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
@@ -13,13 +13,13 @@
     "type": "git",
     "url": "git+https://github.com/xuui/quickstart.git"
   },
-  "author": "xu.hel",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xuui/quickstart/issues"
   },
   "homepage": "https://github.com/xuui/quickstart#readme",
   "dependencies": {
+    "ant-design-vue": "^1.4.8",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
   },
