@@ -32,6 +32,7 @@ npm i --save-dev vue-loader
 npm i --save-dev vue-style-loader
 npm i --save-dev vue-template-compiler
 npm i --save-dev webpack
+npm i --save-dev webpack-cli
 npm i --save-dev webpack-bundle-analyzer
 npm i --save-dev webpack-dev-server
 npm i --save-dev webpack-merge
